@@ -1,0 +1,36 @@
+﻿@model System.Collections.Generic.IEnumerable<CRUD_operation_with_computer.Models.Computer?>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div>
+    <a class="btn btn-outline-secondary" asp-controller="Computer" asp-action="Create">Create</a>
+    <table class="table table-active">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Video card</th>
+            <th>Processor</th>
+            <th>RAM</th>
+            <th>ROM</th>
+            <th></th>
+        </tr>
+        </thead>
+        @foreach (var computer in Model)
+        {
+            <tr>
+                <td>@computer?.Name</td>
+                <td>@computer?.VideoCard</td>
+                <td>@computer?.Processor</td>
+                <td>@computer?.RAM</td>
+                <td>@computer?.ROM</td>
+                <td>
+                    <a asp-controller="Computer" asp-action="Delete" asp-route-computerId="@computer.Id">Delete</a> | 
+                    <a asp-controller="Computer" asp-action="Edit" asp-route-computerId="@computer.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

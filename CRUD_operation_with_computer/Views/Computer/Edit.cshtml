@@ -1,0 +1,43 @@
+﻿@model CRUD_operation_with_computer.Models.Computer?
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="form-control" style="width: 300px; margin: auto">
+    <h2 class="text-center">Edit computer</h2>
+    <form asp-controller="Computer" asp-action="Edit" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input asp-for="Id" hidden="hidden"/>
+        <div>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control"/>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="VideoCard"></label>
+            <input asp-for="VideoCard" class="form-control"/>
+            <span asp-validation-for="VideoCard" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Processor"></label>
+            <input asp-for="Processor" class="form-control"/>
+            <span asp-validation-for="Processor" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="RAM"></label>
+            <input asp-for="RAM" class="form-control"/>
+            <span asp-validation-for="RAM" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="ROM"></label>
+            <input asp-for="ROM" class="form-control"/>
+            <span asp-validation-for="ROM" class="text-danger"></span>
+        </div>
+        <div>
+            <input type="submit" value="Edit" class="btn btn-outline-success"/>
+            <a asp-controller="Computer" asp-action="Index" class="btn btn-outline-secondary">Back to list</a>
+        </div>
+    </form>
+</div>
